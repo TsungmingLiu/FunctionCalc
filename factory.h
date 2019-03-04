@@ -1,21 +1,21 @@
-// in base.hpp:
+// in Rule.hpp:
 #include <map>
 #include <utility>      // std::pair
 #include <iostream>
 
-// Base Class of Rules
-class Base{
+// Rule Class of Rules
+class Rule{
         const std::string ruleName;
     public:
-        Base(std::string name): ruleName(name) { };
+        Rule(std::string name): ruleName(name) { };
         std::string getName() { return ruleName; }
         virtual void exec() = 0;
 };
 
-struct BaseFactory {
-        typedef std::map<std::string, Base*> map_type;
+struct RuleFactory {
+        typedef std::map<std::string, Rule*> map_type;
 
-        static Base * createInstance(std::string const& s) {
+        static Rule * createInstance(std::string const& s) {
             map_type::iterator it = getMap()->find(s);
             if(it == getMap()->end())
                 // SHOULD THROW EXCEPTION HERE
@@ -31,7 +31,7 @@ struct BaseFactory {
             return map; 
         }
 
-        void addEntry(Base* rule){
+        void addEntry(Rule* rule){
             (*getMap())[ rule->getName() ] = rule;
         }
 
@@ -41,7 +41,7 @@ struct BaseFactory {
 
 // Register Helper
 template<typename T>
-struct DerivedRegister: BaseFactory { 
+struct DerivedRegister: RuleFactory { 
     DerivedRegister(std::string const& s) {
         getMap()->insert(std::make_pair(s, new T));
     }

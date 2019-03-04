@@ -1,7 +1,7 @@
 #include "rule.h"
 
-// Initialize Map in BaseFactory
-BaseFactory::map_type * BaseFactory::map = NULL;
+// Initialize Map in RuleFactory
+RuleFactory::map_type * RuleFactory::map = NULL;
 
 // Derived Rule Functions
 void DerivedA::exec(){

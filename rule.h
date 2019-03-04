@@ -3,15 +3,15 @@
 #include <iostream>
 using namespace std;
 
-class DerivedA: public Base {
+class DerivedA: public Rule {
     public:
-        DerivedA(): Base("DerivedA"){ };
+        DerivedA(): Rule("DerivedA"){ };
         void exec();
 };
 
-class DerivedB: public Base {
+class DerivedB: public Rule {
     public:
-        DerivedB(): Base("DerivedB"){ };
+        DerivedB(): Rule("DerivedB"){ };
         void exec();
     private:
         static DerivedRegister<DerivedB> reg;

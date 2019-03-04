@@ -5,9 +5,9 @@ using namespace std;
 
 int main()
 {
-    BaseFactory * bf = new BaseFactory;
+    RuleFactory * bf = new RuleFactory;
     cout << "Hello World\n";
-    Base * rp = bf->createInstance("DerivedA");
+    Rule * rp = bf->createInstance("DerivedA");
     
     rp->exec();
     
