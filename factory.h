@@ -5,8 +5,9 @@
 
 // Base Class of Rules
 class Base{
+        const std::string RuleName;
     public:
-        Base(std::string x){};
+        Base(std::string name): RuleName(name) { };
         virtual void exec() = 0;
 };
 
