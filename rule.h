@@ -3,22 +3,16 @@
 #include <iostream>
 using namespace std;
 
+class DerivedA: public Base {
+    public:
+        DerivedA(): Base("DerivedA"){ };
+        void exec();
+};
+
 class DerivedB: public Base {
     public:
-        DerivedB(): Base("DerivedB"){
-            cout << "DerivedB ctor" << endl;
-        };
+        DerivedB(): Base("DerivedB"){ };
         void exec();
     private:
         static DerivedRegister<DerivedB> reg;
-};
-
-class DerivedA: public Base {
-    public:
-        DerivedA(): Base("DerivedA"){
-            cout << "DerivedA ctor" << endl;
-        };
-        void exec();
-    private:
-        static DerivedRegister<DerivedA> reg;
 };

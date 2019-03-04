@@ -7,14 +7,14 @@ int main()
 {
     BaseFactory * bf = new BaseFactory;
     cout << "Hello World\n";
-    Base * rp = bf->createInstance("DerivedB");
+    Base * rp = bf->createInstance("DerivedA");
     
-    rp->exec();
-    
-    rp = bf->createInstance("DerivedA");
     rp->exec();
     
     rp = bf->createInstance("DerivedB");
+    rp->exec();
+    
+    rp = bf->createInstance("DerivedA");
     rp->exec();
     
     return 0;

@@ -5,9 +5,10 @@
 
 // Base Class of Rules
 class Base{
-        const std::string RuleName;
+        const std::string ruleName;
     public:
-        Base(std::string name): RuleName(name) { };
+        Base(std::string name): ruleName(name) { };
+        std::string getName() { return ruleName; }
         virtual void exec() = 0;
 };
 
@@ -17,6 +18,7 @@ struct BaseFactory {
         static Base * createInstance(std::string const& s) {
             map_type::iterator it = getMap()->find(s);
             if(it == getMap()->end())
+                // SHOULD THROW EXCEPTION HERE
                 return 0;
             return it->second;
         }
@@ -29,14 +31,22 @@ struct BaseFactory {
             return map; 
         }
 
+        void addEntry(Base* rule){
+            (*getMap())[ rule->getName() ] = rule;
+        }
+
     private:
         static map_type * map;
 };
 
 // Register Helper
 template<typename T>
-struct DerivedRegister : BaseFactory { 
+struct DerivedRegister: BaseFactory { 
     DerivedRegister(std::string const& s) {
         getMap()->insert(std::make_pair(s, new T));
+    }
+
+    DerivedRegister(){
+        addEntry(new T);
     }
 };

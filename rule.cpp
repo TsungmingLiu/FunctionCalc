@@ -11,6 +11,7 @@ void DerivedB::exec(){
     cout << "DerivedB exec" << endl;
 }
 
-// Self-Register
+// Self-register #1: using registry helper
+DerivedRegister<DerivedA> reg;          
+// Self-register #2: using 
 DerivedRegister<DerivedB> DerivedB::reg("DerivedB");
-DerivedRegister<DerivedA> DerivedA::reg("DerivedA");
