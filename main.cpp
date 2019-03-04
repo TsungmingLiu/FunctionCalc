@@ -9,13 +9,13 @@ int main()
     cout << "Hello World\n";
     Rule * rp = bf->createInstance("DerivedA");
     
-    rp->exec();
+    rp->exec("Test 1");
     
     rp = bf->createInstance("DerivedB");
-    rp->exec();
+    rp->exec("Test 2");
     
     rp = bf->createInstance("DerivedA");
-    rp->exec();
+    rp->exec("Test 3");
     
     return 0;
 }

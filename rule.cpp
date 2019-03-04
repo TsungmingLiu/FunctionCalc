@@ -4,11 +4,11 @@
 RuleFactory::map_type * RuleFactory::map = NULL;
 
 // Derived Rule Functions
-void DerivedA::exec(){
-    cout << "DerivedA exec" << endl;
+void DerivedA::exec(string input){
+    cout << "DerivedA exec: " << input << endl;
 }
-void DerivedB::exec(){
-    cout << "DerivedB exec" << endl;
+void DerivedB::exec(string input){
+    cout << "DerivedB exec: " << input << endl;
 }
 
 // Self-register #1: using registry helper

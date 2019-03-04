@@ -9,7 +9,7 @@ class Rule{
     public:
         Rule(std::string name): ruleName(name) { };
         std::string getName() { return ruleName; }
-        virtual void exec() = 0;
+        virtual void exec(std::string) = 0;
 };
 
 struct RuleFactory {
