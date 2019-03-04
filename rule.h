@@ -8,8 +8,6 @@ class DerivedB: public Base {
         DerivedB(): Base("DerivedB"){
             cout << "DerivedB ctor" << endl;
         };
-        ~DerivedB();
-        void init();
         void exec();
     private:
         static DerivedRegister<DerivedB> reg;
@@ -20,8 +18,6 @@ class DerivedA: public Base {
         DerivedA(): Base("DerivedA"){
             cout << "DerivedA ctor" << endl;
         };
-        ~DerivedA();
-        void init();
         void exec();
     private:
         static DerivedRegister<DerivedA> reg;
